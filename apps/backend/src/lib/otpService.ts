@@ -22,6 +22,7 @@ export const sendOTP = async (userId: string) => {
     if (!user) throw new Error("User not found");
 
     const token = generateOTP();
+    console.log("Generated OTP - ",token);
     await prisma.oTP.create({
       data: {
         otp: token,
